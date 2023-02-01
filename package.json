@@ -15,7 +15,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {  
+  "devDependencies": {
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.1",
@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@hapi/boom": "^9.1.4",
+    "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
     "docker": "^1.0.0",
     "dotenv": "^16.0.3",
@@ -32,6 +33,9 @@
     "faker": "^5.5.3",
     "joi": "^17.7.0",
     "joi-password": "^4.0.0",
+    "jsonwebtoken": "^9.0.0",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
     "pg": "^8.8.0",
     "pg-hstore": "^2.3.4",
     "pool": "^0.4.1",
