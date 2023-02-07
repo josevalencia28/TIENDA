@@ -19,8 +19,7 @@ const CustomerSchema =  {
     allowNull: false,
     type: DataTypes.STRING,
     field: 'last_name',
-  },  
-  
+  },
   phone: {
     allowNull: true,
     type: DataTypes.STRING,

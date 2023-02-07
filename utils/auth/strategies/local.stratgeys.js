@@ -10,7 +10,7 @@ const LocalStrategy = new Strategy( {
   passwordField: 'password'
 },
   
-  async (email, password, done) => {
+  async (email, password, done) => { 
     try {
       const user =  await service.findByEmail(email);
       if(!user) {

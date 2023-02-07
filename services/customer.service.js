@@ -6,12 +6,25 @@ class CustomersService {
     constructor(){}
 
     async create(data) {
-        const newCustomer = await models.Customer.create(data, {include:['user']});
-          return newCustomer;
-    };
+        const hash = await bcrypt.hash(data.user.password, 10);
+        const newData = {
+          ...data,
+          user: {
+              ...data.user, 
+              password: hash
+          }
+        }
+        const newCustomer = await models.Customer.create(newData, {
+          include: ['user']
+        });
+        delete newData.dataValues.password;
+        return newCustomer;
+      };
 
     async find() {
-        const rta = await models.Customer.findAll( {include:['user']});
+        const rta = await models.Customer.findAll( {
+            include:['user']
+        });
         return rta;
     };
 
@@ -29,7 +42,7 @@ class CustomersService {
     async delete(id){
         const customer = await this.findOne(id);
         await customer.destroy();
-        return{rta:true};
+        return{rta: true};
     }
 
 }
