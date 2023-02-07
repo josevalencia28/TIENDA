@@ -19,7 +19,6 @@ class UserService {
     const rta = await models.User.findAll({
       include: ['customer']
     });
-    console.log(rta)
     return rta;
   };
 
@@ -32,10 +31,6 @@ class UserService {
 
   async findOne(id) {
     const user = await models.User.findByPk(id);
-    if(!user){
-     throw boom.notFound('user not found');
-    }
-    console.log(user)
     return user;
   };
 
@@ -48,9 +43,6 @@ class UserService {
   async delete(id) {
       const user = await this.findOne(id);
      await user.destroy();
-     if(!id){ 
-     throw boom.notFound('delete user not found')
-     }
      return {id};
     }
 }
